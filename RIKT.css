@@ -1,0 +1,103 @@
+/* Event Section Container */
+.event-section {
+    padding: 2rem;
+    background-color: #c95729; /* Matches your orange theme */
+}
+
+/* Event Title */
+.event-title {
+    text-align: center;
+    margin: 0 auto 2rem auto; /* Centers horizontally */
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); /* Ensures it's centered */
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+/* Image Wrapper */
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px; /* Adjust for mobile responsiveness */
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+/* Main Image */
+.main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* White Box for Text */
+.text-overlay {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 35%;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Title Label */
+.about-label {
+    position: absolute;
+    top: -50px;
+    left: -10px;
+    background: white;
+    padding: 0.8rem 1.5rem;
+    font-weight: 700;
+    font-size: 2rem;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Red Stripe Decoration */
+.about-label span {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.about-label span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80%;
+    width: 4px;
+    background: #CC002B;
+    border-radius: 2px;
+}
+
+/* Text Inside the White Box */
+.overlay-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    color: #333;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .text-overlay {
+        width: 60%;
+        left: 20%;
+        padding: 1rem;
+    }
+
+    .event-title {
+        font-size: 2rem;
+    }
+}
