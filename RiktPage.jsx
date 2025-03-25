@@ -1,47 +1,29 @@
 import React from "react";
 import "../styles/RIKT.css";
-{
-    /*Date and time*/
-}
-function RIKT() {
-    const timelineData = [
-        {
-            date: "May 30th 2025",
-            events: [
-                { time: "8:00 AM", activity: "Check-in and shinai check" },
-                { time: "9:15 AM", activity: "Opening Ceremony" },
-                { time: "9:30 AM", activity: "Morning Matches" },
-                { time: "12:00 PM", activity: "Lunch Break" },
-                { time: "1:00 PM", activity: "Afternoon Matches" },
-                { time: "3:00 PM", activity: "Award Ceremony" },
-            ],
-        },
-        {
-            date: "May 31st 2025",
-            events: [
-                { time: "8:00 AM", activity: "Check-in and shinai check" },
-                { time: "9:15 AM", activity: "Opening Ceremony" },
-                { time: "9:30 AM", activity: "Morning Matches" },
-                { time: "12:00 PM", activity: "Lunch Break" },
-                { time: "1:00 PM", activity: "Afternoon Matches" },
-                { time: "3:00 PM", activity: "Award Ceremony" },
-            ],
-        },
-        {
-            date: "June 1st 2025",
-            events: [
-                { time: "8:15 AM", activity: "Overview Ceremony" },
-                { time: "9:30 AM", activity: "Morning Matches" },
-                { time: "12:00 PM", activity: "Lunch Break" },
-                { time: "1:00 PM", activity: "Afternoon Matches" },
-                { time: "3:00 PM", activity: "Award Ceremony" },
-            ],
-        },
-    ];
+import content from "../configs/content";
 
+const RIKT = ( {language} ) => {
+    const timelineData= content[language]?.timelineData || content["en"].timelineData;
+    const riktData = content[language]?.riktData || content["en"].riktData;
+    
     return (
-        <section className="timeline-section">
-            <h1 className="timeline-title">Event Timeline</h1>
+        <section className="timeline-section relative">
+          {/* Tournament Banner Section */}
+          <div className="banner-section">
+        <img 
+          src="/IchigekiBanner.png" 
+          alt="RMIT Ichigeki Kendo Tournament 2025"
+        />
+      </div>
+
+      <div className="about-section">
+    <h2 className="about-title">ABOUT THE EVENT</h2>
+    <p className="about-text">
+        Hosted by RMIT Shinsei Kendo Club, The <strong>RMIT Ichigeki Kendo Tournament</strong> aims to create opportunities 
+        for young kendokas to compete, improve their skills, and strengthen the Kendo community in Ho Chi Minh city.
+    </p>
+</div>
+            <h1 className="timeline-title"> {riktData.eventTimeline} </h1>
 
             {timelineData.map((day, index) => (
                 <div key={index} className="timeline-card">
@@ -70,29 +52,27 @@ function RIKT() {
             <div className="requirements-container">
                 <div className="requirement-card">
                     <h2 className="requirement-title">
-                        Eligibility Requirements
+                        { riktData.eligibility.title }
                     </h2>
-                    <p className="requirement-text">+ Above 18 years old</p>
+                    <p className="requirement-text"> {riktData.eligibility.requirements[0] } </p>
                     <p className="requirement-text">
-                        + For 0-dan participants, you must be able to fight in
-                        bogu
+                        {riktData.eligibility.requirements[1]}
                     </p>
                 </div>
 
                 <div className="requirement-card">
-                    <h2 className="requirement-title">How to Register</h2>
+                    <h2 className="requirement-title"> {riktData.registration.title} </h2>
                     <p className="registration-text">
-                        To participate, complete the registration form before
-                        and submit it before April 1st, 2025.
+                       {riktData.registration.description} 
                     </p>
-                    <button className="register-button">Comming soon...</button>
+                    <button className="register-button">{riktData.registration.button}</button>
                 </div>
             </div>
             {/* ▲▲▲ END OF NEW SECTION ▲▲▲ */}
             {/* ▼▼▼ Contact Us Section ▼▼▼ */}
             <div className="contact-us-container">
                 <p className="contact-text">
-                    If there's any questions, contact us at:
+                   {riktData.contact.text} 
                 </p>
                 <div className="contact-icons">
                     <a
